@@ -14,7 +14,7 @@ let speclist =
   [
     ("-year", Arg.Set_int cli_year, "Selected year");
     ("-day", Arg.Set_int cli_day, "Selected day");
-    ("-part", Arg.Set_int cli_day, "Selected part");
+    ("-part", Arg.Set_int cli_part, "Selected part");
   ]
 
 let selector (parameter : int ref) name default =
@@ -29,7 +29,7 @@ let selector (parameter : int ref) name default =
 let set_fields () =
   let year = selector cli_year "year" 0 in
   let day = selector cli_day "day" 0 in
-  let part = selector cli_part "part" 1 in
+  let part = selector cli_part "part" 0 in
   (year, day, part)
 
 let () =
@@ -37,12 +37,12 @@ let () =
   let year, day, part = set_fields () in
   print_endline
     ("Executing the code for year: " ^ string_of_int year ^ " and day: "
-   ^ " part: " ^ string_of_int part ^ string_of_int day ^ "...");
+   ^ string_of_int day ^ " part: " ^ string_of_int part ^ "...");
   print_newline ();
   let d = StringMap.find (string_of_int year) Aoc.Index.fList in
   if part == 0 then
     let j = StringMap.find (string_of_int day) d in
     j ()
   else
-    let j = StringMap.find (string_of_int day ^ string_of_int part) d in
+    let j = StringMap.find (string_of_int day ^ "p" ^ string_of_int part) d in
     j ()
