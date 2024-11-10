@@ -27,4 +27,6 @@ let main () =
      done
    with End_of_file -> print_endline "end of file");
   print_endline ("Total sum: " ^ string_of_int !sum);
-  ()
+
+  flush stdout;
+  close_in ic

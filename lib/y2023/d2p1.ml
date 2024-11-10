@@ -1,9 +1,5 @@
 let file_path = "input/2023/2"
 
-type model = (int * (int * int * int) list) list
-
-let sample = "Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green"
-
 module StringMap = Map.Make (String)
 
 let print_list (lst : string list) = List.iter print_endline lst
@@ -81,4 +77,5 @@ let main () =
      done
    with End_of_file -> print_endline "end of file");
   print_endline ("Total sum: " ^ string_of_int !sum);
-  ()
+  flush stdout;
+  close_in ic

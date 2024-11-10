@@ -97,4 +97,6 @@ let main () =
      done
    with End_of_file -> print_endline "end of file");
   print_newline ();
-  print_endline ("Total Sum: " ^ string_of_int !sum)
+  print_endline ("Total Sum: " ^ string_of_int !sum);
+  flush stdout;
+  close_in ic
