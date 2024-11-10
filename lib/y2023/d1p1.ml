@@ -1,4 +1,3 @@
-
 let file_path = "input/2023/1"
 
 let rec find_first_last_num_in_string line seq first second =
