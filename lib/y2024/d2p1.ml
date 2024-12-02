@@ -5,9 +5,7 @@ let ints_of_line line =
 
 type inde = Undetermined | Increasing | Decreasing | Equal
 
-let is_line_safe line =
-  let line_ints = ints_of_line line in
-
+let are_ints_safe line_ints =
   let rec aux lst acc last_mode =
     match lst with
     | [] -> acc
@@ -29,6 +27,8 @@ let is_line_safe line =
   in
 
   aux line_ints true Undetermined
+
+let is_line_safe line = are_ints_safe (ints_of_line line)
 
 let rec is_file_safe in_channel acc =
   match input_line in_channel with
