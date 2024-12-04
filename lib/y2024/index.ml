@@ -8,4 +8,5 @@ let days =
          ("1p2", D1p2.main);
          ("2p1", D2p1.main);
          ("2p2", D2p2.main);
+         ("3p1", D3p1.main);
        ]
